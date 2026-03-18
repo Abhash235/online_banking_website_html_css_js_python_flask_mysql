@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Services — Online Bank{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=call_made" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-bottom: 43px;">
+  <div class="heroo">
+    <div>
+      <h1>Our Services</h1>
+      <p class="muted">Secure, fast, and simple banking services for individuals and businesses.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Account Management</h3>
+      <p>View statements, update personal details, open/close accounts, and manage beneficiaries.</p>
+      <a class="btn" onclick="openService('account')">Open</a>
+    </div>
+
+    <div class="card">
+      <h3>Fund Transfer</h3>
+      <p>Instant transfers within the bank and to other banks with secure OTP verification.</p>
+      <a class="btn" onclick="openService('transfer')">Transfer</a>
+    </div>
+
+    <div class="card">
+      <h3>Card Services</h3>
+      <p>Apply for debit/credit cards, block lost cards, manage card limits and PIN.</p>
+      <a class="btn" onclick="openService('card')">Manage</a>
+    </div>
+
+    <div class="card">
+      <h3>Bill Payments</h3>
+      <p>Pay utilities, mobile, and other recurring bills from a single dashboard.</p>
+      <a class="btn" onclick="openService('bills')">Pay Bills</a>
+    </div>
+
+    <div class="card">
+      <h3>Loan Services</h3>
+      <p>Explore personal, home, and auto loans with easy online applications and calculators.</p>
+      <a class="btn" onclick="openService('loan')">Apply</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modalBackdrop" class="modal-backdrop" onclick="closeModal(event)">
+  <div class="modal" role="dialog" onclick="event.stopPropagation()">
+    <div>
+      <span id="modalClose" class="close-x" onclick="closeModal(event)">&times;</span>
+      <h2 id="modalTitle">Service</h2>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openService(name) {
+    const title = document.getElementById('modalTitle')
+    const body = document.getElementById('modalBody')
+    if (name === 'account') {
+      title.textContent = 'Account Management'
+      body.innerHTML = `
+        <p class="muted">Quick actions for your accounts.</p>
+        <button class="btn" onclick="showMessage('Statement requested — check email shortly')">Request Statement</button>
+        <button class="btn" style="background:#10b981;margin-left:8px" onclick="showMessage('Beneficiary added')">Add Beneficiary</button>
+      `
+    } else if (name === 'transfer') {
+      title.textContent = 'Fund Transfer'
+      body.innerHTML = `
+        <form id="transferForm">
+          <div class="form-field"><label>From Account</label><select required><option>Primary - 123456789</option></select></div>
+          <div class="form-field"><label>To Account / UPI ID</label><input required placeholder="Enter account number or UPI"/></div>
+          <div class="form-field"><label>Amount</label><input type="number" required min="1"/></div>
+          <div class="form-field"><label>Remark (optional)</label><input/></div>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      `
+      setTimeout(() => {
+        const f = document.getElementById('transferForm')
+        f.addEventListener('submit', function (e) {
+          e.preventDefault(); showMessage('Transfer initiated. OTP sent to your mobile.')
+        })
+      }, 0)
+    } else if (name === 'card') {
+      title.textContent = 'Card Services'
+      body.innerHTML = `
+        <p class="muted">Manage your debit and credit cards.</p>
+        <button class="btn" onclick="showMessage('Card blocked')">Block Card</button>
+        <button class="btn" style="background:#10b981;margin-left:8px" onclick="showMessage('PIN reset request sent')">Reset PIN</button>
+      `
+    } else if (name === 'bills') {
+      title.textContent = 'Bill Payments'
+      body.innerHTML = `
+        <form id="billForm">
+          <div class="form-field"><label>Biller</label><input required placeholder="e.g., Electricity Co."/></div>
+          <div class="form-field"><label>Consumer / Account No.</label><input required/></div>
+          <div class="form-field"><label>Amount</label><input type="number" required min="1"/></div>
+          <button class="btn" type="submit">Pay</button>
+        </form>
+      `
+      setTimeout(() => {
+        document.getElementById('billForm').addEventListener('submit', function (e) { e.preventDefault(); showMessage('Bill payment scheduled') })
+      }, 0)
+    } else if (name === 'loan') {
+      title.textContent = 'Loan Services'
+      body.innerHTML = `
+        <p class="muted">Check eligibility or start an application.</p>
+        <form id="loanForm">
+          <div class="form-field"><label>Loan Type</label><select required><option>Personal</option><option>Home</option><option>Auto</option></select></div>
+          <div class="form-field"><label>Amount</label><input type="number" required min="1000"/></div>
+          <div class="form-field"><label>Tenure (months)</label><input type="number" required min="6"/></div>
+          <button class="btn" type="submit">Apply</button>
+        </form>
+      `
+      setTimeout(() => { document.getElementById('loanForm').addEventListener('submit', function (e) { e.preventDefault(); showMessage('Application submitted — we will contact you') }) }, 0)
+    }
+    document.getElementById('modalBackdrop').style.display = 'flex'
+  }
+
+  function closeModal(e) {
+    if (e) e.stopPropagation()
+    document.getElementById('modalBackdrop').style.display = 'none'
+    document.getElementById('modalBody').innerHTML = ''
+  }
+
+  function showMessage(msg) {
+    const body = document.getElementById('modalBody')
+    body.innerHTML = `<p class="muted">${msg}</p>`
+    setTimeout(() => { closeModal() }, 1500)
+  }
+</script>
+{% endblock %}

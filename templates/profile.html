@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Profile — OnlineBank{% endblock %}
+
+{% block content %}
+<section class="profile-page">
+  <div class="container">
+    <h1>online banking - profile section</h1>
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img src="{{ url_for('static', filename='images/dummy.jpg') }}" alt="Profile picture">
+      </div>
+
+      <div class="profile-info">
+        <h1>{{ user.user_name if user else "Profile" }}</h1>
+        <p class="profile-email">{{ user.email if user else "" }}</p>
+
+        <div class="profile-details">
+          <div class="detail">
+            <span>Phone</span>
+            <strong>{{ user.mobile if user else "-" }}</strong>
+          </div>
+          <div class="detail">
+            <span>Account No</span>
+            <strong>{{ user.account_no if user else "-" }}</strong>
+          </div>
+          <div class="detail">
+            <span>Account Type</span>
+            <strong>{{ user.acc_type if user else "-" }}</strong>
+          </div>
+          <div class="detail">
+            <span>Balance</span>
+            <strong>&#8377;{{ "{:,.2f}".format(user.balance) if user else "-" }}</strong>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Contact — Online Bank{% endblock %}
+
+{% block content %}
+<style>
+  .backg {
+    width: 80%;
+    height: 490px;
+    background-image: url("/static/images/contac_us_page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+  }
+  .contact {
+    width: 400px;
+    height: fit-content;
+    margin: auto;
+    margin-top: 24px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 200, 255, 0.5);
+    box-shadow:
+      0 0 25px rgba(0, 200, 255, 0.3),
+      inset 0 0 10px rgba(0, 200, 255, 0.2);
+  }
+
+  .btn {
+    color: white;
+    border: none;
+  }
+  .input-box input,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background: rgba(145, 200, 237, 0.521);
+    color: white;
+  }
+
+  .input-box input::placeholder {
+    color: #bfe9ff;
+  }
+
+  .btn {
+    border-radius: 8px;
+    background: linear-gradient(90deg, #0a4a7a, #0fb3ff);
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+  }
+</style>
+<div class="backg" style="margin-bottom: 40px;">
+  <div class="container contact" >
+    <h1>Contact Us</h1>
+    <form id="contactForm" action="#" method="post" novalidate>
+      <div class="input-box">
+        <label>Full name <input name="name" required></label>
+      </div>
+      <div class="input-box">
+        <label>Email <input name="email" type="email" required></label>
+      </div>
+      <div class="input-box">
+        <label>Message <textarea name="message" required></textarea></label>
+      </div>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

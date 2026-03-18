@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up — Online Bank{% endblock %}
+
+{% block content %}
+<style>
+  .auth {
+    width: 400px;
+    height: fit-content;
+    position: relative;
+    margin: auto;
+    padding: 15px;
+    top: 19px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 200, 255, 0.5);
+    margin-bottom: 65px;
+    box-shadow:
+      0 0 25px rgba(0, 200, 255, 0.3),
+      inset 0 0 10px rgba(0, 200, 255, 0.2);
+  }
+
+  .input-box input,
+  select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background: rgba(145, 200, 237, 0.521);
+    color: white;
+  }
+</style>
+
+<div class="container auth" style="margin-bottom: 130px;">
+  <h1>Create an account</h1>
+  {% if error %}
+  <div class="error">
+    {{error}}
+  </div>
+  {% endif %}
+
+  <form id="signupForm" action="/signup" method="POST" novalidate>
+    <div class="input-box">
+      <label>Full name <input name="fullname" required></label>
+    </div>
+    <div class="input-box">
+      <label>Email <input name="email" type="email" required></label>
+    </div>
+    <div class="input-box">
+      <label>Mobile no <input name="mobile_no" pattern="[0-9]{10}" maxlength="10" required></label>
+    </div>
+    <div class="input-box">
+      <label>Account no<input name="acc_no" required></label>
+    </div>
+    <div class="input-box">
+      <label>Account Type <select name="acc_type" id="">
+          <option value="" style="color: black;">Select Account Type</option>
+          <option value="" style="color: black;">saving bank</option>
+          <option value="" style="color: black;">current bank</option>
+          <option value="" style="color: black;">Fixed Deposit</option>
+        </select></label>
+    </div>
+    <div class="input-box">
+      <label>Balance <input name="balance" type="number" required></label>
+    </div>
+    <div class="input-box">
+      <label>Password <input name="password" type="password" required minlength="6"></label>
+    </div>
+    <button class="btn" type="submit">Sign Up</button>
+    <p class="muted">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+  </form>
+</div>
+
+{% endblock %}

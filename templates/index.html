@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Online Bank — Home{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flash-message" id="flashMessage">
+  {% for message in messages %}
+  {{message}}
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<section class="hero">
+  <div class="container hero-inner">
+    <h1> Online Banking made Truth, Trust, Transparency</h1>
+    <div class="hero-ctas">
+      <a class="btn" href="{{ url_for('signup') }}">Create account</a>
+      <a class="btn btn-outline" href="{{ url_for('services') }}">Our Services</a>
+    </div>
+  </div>
+</section>
+<section class="features container">
+  <article>
+    <h3>Secure Accounts</h3>
+    <p>uses secure authentication methods and encrypted data to protect your information and transactions</p>
+  </article>
+  <article>
+    <h3>Instant Transfers</h3>
+    <p>Transactions are processed immediately, ensuring fast and reliable fund transfers anytime.</p>
+  </article>
+  <article>
+    <h3>Transaction History</h3>
+    <p>allows you to view all your past banking activities</p>
+  </article>
+</section>
+<span class="text-center" data-font-size="38" data-line-height="45.6" data-letter-spacing="normal">
+  Banking Solutions tailor-made for you</span>
+<div class="cmp-tabs__wrapper">
+  <div class="swiper-container js-banking-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #8ba2ff;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">Savings Account</h4>
+            <p class="bp-card-desc">Start your savings journey with us</p>
+            <div class="cmp-teaser__action-container">
+              <a class="btn btn-primary" href="#">Know More</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/prepaid-card-desktop?fmt=webp-alpha" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #daafff;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">Credit Card</h4>
+            <p class="bp-card-desc">Start your savings journey with us</p>
+            <div class="cmp-teaser__action-container">
+              <a class="btn btn-primary" href="#">Know More</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/credit-card-desktop?fmt=webp-alpha" alt="Savings">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #c8f9fc;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">Big Spents.Small EMIs.</h4>
+            <p class="bp-card-desc">Start your savings journey with us</p>
+            <div class="cmp-teaser__action-container">
+              <a class="btn btn-primary" href="#">Know More</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/smartemi-desktop?fmt=webp-alpha" alt="Savings">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #758cff;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">Commercial Credit Card</h4>
+            <p class="bp-card-desc">Start your savings journey with us</p>
+            <div class="cmp-teaser__action-container">
+              <a class="btn btn-primary" href="#">Know More</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/commercial-credit-card-desktop?fmt=webp-alpha"
+              alt="Savings">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #d7ecfa;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">Debit Card</h4>
+            <p class="bp-card-desc">Start your savings journey with us</p>
+            <div class="cmp-teaser__action-container">              
+              <a class="btn btn-primary" href="#">Know More</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/debit-card-desktop?fmt=webp-alpha" alt="Savings">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #f88b78;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">PPF Account</h4>
+            <p class="bp-card-desc">Secure your long-term investment</p>
+            <div class="cmp-teaser__action-container">
+              <a class="btn btn-primary" href="#">Know More</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/forex-card-desktop?fmt=webp-alpha" alt="PPF">
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="cmp-teaser" style="background-color: #ECEDF3;">
+          <div class="cmp-teaser__content">
+            <h4 class="cmp-teaser__title">Salary Account</h4>
+            <p class="bp-card-desc">Manage your earnings, your way.</p>
+            <div class="cmp-teaser__action-container">
+              <a class="btn btn-primary" href="#">Open Instantly</a>
+            </div>
+          </div>
+          <div class="cmp-teaser__image">
+            <img src="https://s7ap1.scene7.com/is/image/hdfcbankPWS/salary-account-desktop?fmt=webp-alpha" alt="Salary">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="poster">
+  <div class="poster__wrap">
+    <div class="poster-heading">
+      <h2>Trustworthy <br>Banking</h2>
+    </div>
+    <div class="poster-text">
+      <p>Experience transparent and seamless <br> banking with security at every step.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% endblock %}

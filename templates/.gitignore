@@ -1,0 +1,6 @@
+.vscode
+.env
+.md
+.txt
+__pycache__
+.venv
