@@ -1,0 +1,20 @@
+-- CREATE DATABASE online_banking;
+USE online_banking;
+
+-- CREATE TABLE signup
+CREATE TABLE signup(
+id INT AUTO_INCREMENT PRIMARY KEY ,
+user_name VARCHAR(30) NOT NULL,
+email VARCHAR(40) NOT NULL UNIQUE,
+mobile CHAR(10) NOT NULL UNIQUE,
+    CHECK (CHAR_LENGTH(mobile) = 10),
+account_no CHAR(10) NOT NULL,
+    CHECK (CHAR_LENGTH(mobile) = 10), 
+acc_type CHAR(30) NOT NULL,
+balance DECIMAL(15,2) DEFAULT 0.00 NOT NULL ,
+password VARCHAR(255) NOT NULL
+ );
+
+DESCRIBE signup;
+select * from signup;
+TRUNCATE TABLE signup;
