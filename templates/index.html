@@ -3,24 +3,19 @@
 {% block title %}Online Bank — Home{% endblock %}
 
 {% block content %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<div class="flash-message" id="flashMessage">
-  {% for message in messages %}
-  {{message}}
-  {% endfor %}
-</div>
-{% endif %}
-{% endwith %}
 <section class="hero">
   <div class="container hero-inner">
-    <h1> Online Banking made Truth, Trust, Transparency</h1>
+    <h1>Banking made Trust & Transparency</h1>
     <div class="hero-ctas">
       <a class="btn" href="{{ url_for('signup') }}">Create account</a>
       <a class="btn btn-outline" href="{{ url_for('services') }}">Our Services</a>
+      <a class="btn" href="{{ url_for('transection') }}">Transfer Money</a>
     </div>
   </div>
+
 </section>
+  <span class="text-center" data-font-size="20" data-line-height="45.6" data-letter-spacing="normal">
+  Features </span>
 <section class="features container">
   <article>
     <h3>Secure Accounts</h3>

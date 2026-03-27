@@ -1,67 +1,89 @@
 /* Services page specific styles */
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("/static/images/background_image.jpg");
+    background-image: url("/static/images/lucid-origin_Professional_banking_website_hero_background_dark_blue_fintech_gradient_abstract-0.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
 }
+
 * {
     box-sizing: border-box;
-    margin: 0; 
+    margin: 0;
+}
+.header-inner{
+    position: relative;
+    bottom: 30px;
 }
 .container {
     max-width: 1100px;
     margin: 32px auto;
     padding: 0 16px;
+
 }
+
 .heroo {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+        
 }
+
 .heroo h1 {
     margin: 0;
     font-size: 28px;
 }
+
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
     margin-top: 20px;
 }
+
 .card {
-    background: #9ddafb7a;
+     background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 200, 255, 0.5);
+    box-shadow:
+      0 0 25px rgba(0, 200, 255, 0.3),
+      inset 0 0 10px rgba(0, 200, 255, 0.2);
+    /* background: #9ddafb7a; */
     border-radius: 8px;
     padding: 18px;
     margin: 20px;
-    border: 1px solid rgba(0, 200, 255, 0.5);
+    /* border: 1px solid rgba(0, 200, 255, 0.5); */
     margin-bottom: 65px;
-    box-shadow:
-      0 0 25px rgba(0, 200, 255, 0.542),
-      inset 0 0 10px rgba(0, 200, 255, 0.2);
+    /* box-shadow:
+        0 0 25px rgba(0, 200, 255, 0.542),
+        inset 0 0 10px rgba(0, 200, 255, 0.2); */
 }
+
 .card h3 {
     margin: 0 0 10px 0;
 }
+
 .card p {
     margin: 0 0 14px 0;
-    color: #000000;
+    color: #f9f3f3;
 }
+
 .btn {
-     padding: .5rem .85rem;
-    text-decoration: none ;
-     border-radius:8px;
-    background: linear-gradient(90deg,#0a4a7a,#0fb3ff);
-    color:rgb(255, 255, 255);
-    cursor:pointer;
-    transition:.3s;
+    padding: .5rem .85rem;
+    text-decoration: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #0a4a7a, #0fb3ff);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: .3s;
 }
+
 .muted {
     color: #6b7280;
     font-size: 14px;
 }
+
 /* Modal styles */
 .modal-backdrop {
     position: fixed;
@@ -72,6 +94,7 @@ body{
     justify-content: center;
     padding: 24px;
 }
+
 .modal {
     background: #fff;
     padding: 20px;
@@ -80,15 +103,18 @@ body{
     width: 100%;
     box-shadow: 0 10px 40px rgba(2, 6, 23, 0.4);
 }
+
 .modal .row {
     display: flex;
     gap: 12px;
 }
+
 .form-field {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
+
 input,
 select,
 textarea {
@@ -96,11 +122,13 @@ textarea {
     border: 1px solid #d1d5db;
     border-radius: 6px;
 }
+
 .close-x {
     float: right;
     cursor: pointer;
     color: #6b7280;
 }
+
 @media (max-width: 520px) {
     .hero {
         flex-direction: column;
