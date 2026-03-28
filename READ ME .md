@@ -46,6 +46,8 @@ app = Flask(__name__)
 @app.route("/contact")             # Contact page
 @app.route("/forgotpassword")      # Forgot password page
 @app.route("/profile")             # profile/Dashboard page
+@app.route("/history")             # transection history
+@app.route("/transfer")             # tranfer money to account
 ```
 
 ### 6. **Key Changes in Links**
@@ -113,6 +115,8 @@ OLD FILES TO REMOVE:
 ├── contact.html
 ├── forgotpassword.html
 ├── base.html
+├── history.html
+├── transfer.html
 ├── css/          (folder)
 └── js/           (folder)
 ```

@@ -107,9 +107,8 @@ body {
     height: 520px;
     /* padding: 13rem 0; */
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    /* border: 1px solid rgba(0, 200, 255, 0.5);
-    box-shadow: var(--box-shadow); */
+    backdrop-filter: blur(10px); 
+  
 }
 
 .hero-inner {
@@ -121,9 +120,8 @@ body {
 
 .hero h1 {
     /* margin: 0; */
-    font-size: 4rem;
     font-family: "Bodoni Moda", serif;
-    color: skyblue;
+    color: rgb(255, 255, 255);
     font-size: 75px;
 
 

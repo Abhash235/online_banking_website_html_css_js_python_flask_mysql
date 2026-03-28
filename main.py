@@ -193,6 +193,25 @@ def transection():
 def contact():
     return render_template("contact.html")
 
+@app.route("/history")
+def history():
+
+    if 'acc_no' not in session:
+        return redirect("/login")
+
+    acc_no = session['acc_no']
+
+    cursor.execute("""
+    SELECT * FROM transactions 
+    WHERE sender_acc=%s OR receiver_acc=%s
+    ORDER BY date DESC
+    """,(acc_no,acc_no))
+
+    data = cursor.fetchall()
+
+    return render_template("history.html",data=data)
+
+
 @app.route("/forgotpassword")
 def forgotpassword():
     return render_template("forgotpassword.html")
