@@ -1,16 +1,29 @@
+import os
 from flask import Flask, render_template,request,redirect,url_for,flash,session
 import mysql.connector
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "9f8a7c6e5d4b3a2f1c0e9d8b7a6f5e4c"
 
-db=mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="password",
-    database="online_banking"
+# db=mysql.connector.connect(
+#     host="localhost",
+#     user="root",
+#     password="password",
+#     database="online_banking"
+# )
+
+conn = mysql.connector.connect(
+    host="mysql-3d99ab41-cx06abhash-16fa.h.aivencloud.com",
+    port=28499,
+    user="avnadmin",
+    password=os.getenv("DB_PASSWORD"),
+    database="defaultdb",
+    ssl_disabled=False
 )
-cursor = db.cursor()
+# cursor = db.cursor()
+cursor = conn.cursor()
 
 @app.route("/")
 def index():
@@ -215,6 +228,8 @@ def history():
 @app.route("/forgotpassword")
 def forgotpassword():
     return render_template("forgotpassword.html")
+
+print("Connected Successfully")    
 
 if __name__ == "__main__":
     # app.run(debug=True,port=8000)    
