@@ -15,11 +15,11 @@ app.secret_key = "9f8a7c6e5d4b3a2f1c0e9d8b7a6f5e4c"
 # )
 
 conn = mysql.connector.connect(
-    host="mysql-3d99ab41-cx06abhash-16fa.h.aivencloud.com",
-    port=28499,
-    user="avnadmin",
+    host=os.getenv("DB_HOST"),
+    port=int(os.getenv("DB_PORT")),
+    user=os.getenv("DB_USER"),
     password=os.getenv("DB_PASSWORD"),
-    database="defaultdb",
+    database=os.getenv("DB_NAME"),
     ssl_disabled=False
 )
 # cursor = db.cursor()
